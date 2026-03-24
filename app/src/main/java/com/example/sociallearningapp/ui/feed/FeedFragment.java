@@ -1,5 +1,4 @@
 package com.example.sociallearningapp.ui.feed; // Sửa lại package nếu cần
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,19 +8,17 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
-
-// NHỚ IMPORT CÁC FILE NÀY CỦA BẠN:
 import com.example.sociallearningapp.databinding.FragmentFeedBinding;
 import com.example.sociallearningapp.ui.adapter.PostAdapter;
-import com.example.sociallearningapp.ui.adapter.feed.StoryAdapter;
+import com.example.sociallearningapp.ui.adapter.StoryAdapter;
 
 public class FeedFragment extends Fragment {
 
     // 1. Khai báo đồ nghề của Quản đốc
     private FragmentFeedBinding binding; // Khung giao diện
     private FeedViewModel viewModel;     // Nhà kho chứa dữ liệu
-    private StoryAdapter storyAdapter;   // Anh công nhân 1
-    private PostAdapter postAdapter;     // Anh công nhân 2
+    private StoryAdapter storyAdapter;
+    private PostAdapter postAdapter;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -61,14 +58,14 @@ public class FeedFragment extends Fragment {
         // A. Bật radio nghe kênh Story: Nếu có dữ liệu Story mới, ném ngay cho storyAdapter
         viewModel.getStories().observe(getViewLifecycleOwner(), stories -> {
             if (stories != null) {
-                storyAdapter.setStories(stories);
+                storyAdapter.setItems(stories);
             }
         });
 
         // B. Bật radio nghe kênh Post: Nếu có bài viết mới, ném ngay cho postAdapter
         viewModel.getPosts().observe(getViewLifecycleOwner(), posts -> {
             if (posts != null) {
-                postAdapter.setListPosts(posts);
+                postAdapter.setItems(posts);
             }
         });
     }

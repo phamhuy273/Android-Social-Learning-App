@@ -17,18 +17,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"/>
 
-    <me.ibrahimsn.lib.SmoothBottomBar
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="70dp"
+        android:background="#FFFFFF"
         app:menu="@menu/bottom_nav_menu"
-        app:iconSize="25dp"
-        app:textSize="12dp"
-        app:backgroundColor="#FFFFFF"
-        app:iconTint="#888888"
-        app:indicatorColor="#00000000"
-        app:iconTintActive="#1877F2"
-        app:textColor="#1877F2"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:itemBackground="@drawable/bg_nav_indicator"
+        app:itemIconTint="@color/nav_item_color"
+        app:itemTextColor="@color/nav_item_color"
+        app:itemActiveIndicatorStyle="@null"
+        app:itemRippleColor="@android:color/transparent"
+        app:itemIconSize="25dp"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
